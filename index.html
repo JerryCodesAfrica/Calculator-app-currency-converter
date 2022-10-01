@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Currency Converter</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="heading">Currency Converter
+    </h1>
+    <div class="dashboard">
+      <div class="sc">
+        <span class="screen">0</span>
+        <div class="tab-calculator">
+          <a href="#" class="calc percent">%</a>
+          <a href="" class="calc">CE</a>
+          <a href="" class="calc clear">C</a>
+          <a href="" class="calc del">bksp</a>
+          <a href="" class="calc num7">7</a>
+          <a href="" class="calc num8">8</a>
+          <a href="" class="calc num9">9</a>
+          <a href="" class="calc multiplication">X</a>
+          <a href="" class="calc num4">4</a>
+          <a href="" class="calc num5">5</a>
+          <a href="" class="calc num6">6</a>
+          <a href="" class="calc sub">-</a>
+          <a href="" class="calc num1">1</a>
+          <a href="" class="calc num2">2</a>
+          <a href="" class="calc num3">3</a>
+          <a href="" class="calc add">+</a>
+          <a href="" class="calc div">/</a>
+          <a href="" class="calc num0">0</a>
+          <a href="" class="calc dec">.</a>
+          <a href="" class="calc equ">=</a>
+        </div>
+      </div>
+      <div class="rest">
+        <h3 class="from">From:</h3>
+        <select name="Convert From" id="select-currency">
+          <option value="" id="convert-default">
+          <h3 class="convert-default">Select Currency</h3>
+          </option>
+          <option value="Naira">Naira</option>
+          <option value="Dollar">Dollar</option>
+          <option value="Euro">Euro</option>
+          <option value="Pounds">Pounds</option>
+        </select>
+      
+        <h3 class="to">To:</h3>
+        <select name="Convert To" id="select-currency2">
+          <option value="" id="convert-selected">
+          <h3 class="convert-selected">Select Currency</h3>
+          </option>
+          <option value="">Dollar</option>
+          <option value="">Euro</option>
+          <option value="">Naira</option>
+          <option value="">Pounds</option>
+        </select>
+        <!-- <input type="number pattern="[0-9]*" inputmode="numeric" name="" id="input-value"> -->
+        <button type="submit" class="click-submit" id="submit">Convert</button>
+      </div>
+    </div>
+  </div>
+  <!-- Project -->
+  <script src="main.js"></script>
+</body>
+</html>
