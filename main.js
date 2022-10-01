@@ -1,26 +1,99 @@
 //assigning variables
-//calculator code
-let per = document.querySelector(".percent");
-let clr = document.querySelector(".clear");
-let del = document.querySelector(".del");
-let n7 = document.querySelector(".num7");
-let n8 = document.querySelector(".num8");
-let n9 = document.querySelector(".num9");
-let mtpl = document.querySelector(".multiplication");
-let n4 = document.querySelector(".num4");
-let n5 = document.querySelector(".num5");
-let n6 = document.querySelector(".num6");
-let sb = document.querySelector(".sub");
-let n1 = document.querySelector(".num1");
-let n2 = document.querySelector(".num2");
-let n3 = document.querySelector(".num3");
-let add = document.querySelector(".add");
-let div = document.querySelector(".div");
-let n0 = document.querySelector(".num0");
-let equ = document.querySelector(".equ");
+//calculator codeconst digits = document.getElementById("input-digits"); //Input digits
+const result = document.getElementById("result"); //Result
+const inputBtn = document.querySelectorAll(".btn"); //Select all buttons
+const container = document.querySelector(".container"); //Container
+const lightMode = document.querySelector('[alt="light-mode"]'); //Light Mode
+const darkMode = document.querySelector('[alt="dark-mode"]'); //Dark Mode
+const resetbtn = document.getElementById("reset"); //Reset Button
+
+// Solution of arthimetic opertions on digits
+let sol = "";
+
+// Take input digits
+let btnInput = "";
+
+// Function for toggle modes
+const toggleModes = () => {
+	lightMode.addEventListener("click", () => {
+		container.classList.remove("dark-mode");
+		container.classList.add("default-mode");
+		darkMode.classList.add("invert-icon-grey");
+		darkMode.classList.remove("invert-icon-white");
+		lightMode.classList.remove("invert-icon-grey");
+		resetbtn.classList.remove("invert-icon-white");
+	});
+
+	darkMode.addEventListener("click", () => {
+		container.classList.remove("default-mode");
+		container.classList.add("dark-mode");
+		lightMode.classList.add("invert-icon-grey");
+		darkMode.classList.remove("invert-icon-grey");
+		darkMode.classList.add("invert-icon-white");
+		resetbtn.classList.add("invert-icon-white");
+	});
+};
+
+// Evaluate the input digits
+const evalString = (str) => {
+	try {
+		return Function(`return ${str}`)().toString();
+	} catch (error) {
+		return "ERROR";
+	}
+};
+
+// Remove last character
+const popLastChar = (str) => {
+	return str.slice(0, -1);
+};
+
+// Clear Value
+const clearValue = () => {
+	return "";
+};
+
+// Calculator
+const btnEval = (input) => {
+	input.addEventListener("click", (btn) => {
+		try {
+			let btnValue = btn.target.value;
+			result.style.display = "none";
+
+			if (btnValue === "=") {
+				sol = evalString(btnInput);
+				result.innerText = sol;
+				result.style.display = "block";
+			} else if (btnValue === "C") {
+				btnInput = clearValue();
+				sol = clearValue();
+				digits.innerText = btnInput;
+			} else if (btnValue === "D") {
+				btnInput = popLastChar(btnInput);
+				digits.innerText = btnInput;
+			} else if (btnValue === "R") {
+				btnInput = "0";
+				digits.innerText = btnInput;
+			} else {
+				if (btnInput === "0") {
+					btnInput = "";
+				}
+				btnInput += btnValue;
+				digits.innerText = btnInput;
+			}
+		} catch {
+			btnInput = "ERROR";
+			digits.innerText = btnInput;
+		}
+	});
+};
+
+toggleModes();
+
+inputBtn.forEach(btnEval);
 
 
-var SOlve = [per,clr,del]
+  
 
 
 
